@@ -38,6 +38,10 @@ header>.logo>a {
     border: none;
 }
 
+section {
+    color: rgb(75, 75, 75);
+}
+
 form {
     text-align: center;
     width: 30%;
