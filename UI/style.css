@@ -83,3 +83,35 @@ input[type='submit']:hover {
     background-color: rgb(8, 255, 41);
     color: rgb(0, 0, 0);
 }
+
+.intro {
+    float: left;
+    width: 40%;
+    padding: 50px;
+}
+
+.intro>.links{
+    margin-top: 10%;
+}
+
+.intro>.links>a{
+    color: white;
+    margin-top: 10%;
+    border: none;
+    padding: 1.5%;
+    box-shadow: 0 0 1px 1px rgb(119, 119, 119);
+}
+
+a#register {
+    background-color: rgb(16, 135, 247);
+    margin-right: 5%;
+}
+
+a#login {
+    padding: 1.5% 4%;
+    background-color: rgb(137, 255, 1);
+}
+
+.intro>.links>a:hover{
+    box-shadow: 0 0 2px 2px rgb(61, 60, 60);
+}
