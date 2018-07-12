@@ -90,6 +90,16 @@ input[type='submit']:hover {
     padding: 50px;
 }
 
+.intro-image>img {
+    display: block;
+    width: 50%;
+    height: auto;
+    margin: auto;
+}
+
+.intro-text {
+    border-radius: 8px;
+}
 .intro>.links{
     margin-top: 10%;
 }
@@ -100,10 +110,6 @@ input[type='submit']:hover {
     border: none;
     padding: 1.5%;
     box-shadow: 0 0 1px 1px rgb(34, 29, 29);
-}
-.intro-text {
-    border-radius: 8px;
-    box-shadow: 0 0 3px 3px rgb(214, 214, 214);
 }
 
 a#register {
