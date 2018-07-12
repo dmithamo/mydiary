@@ -7,13 +7,13 @@ body, html {
 }
 
 header, footer {
-    padding: 20px;
-    /* box-shadow: 0 0px 3px 3px rgb(148, 147, 147); */
-    text-align: center
+    padding: 2%;
+    text-align: center;
+    box-shadow: 0 0 3px 3px rgb(214, 214, 214);
 }
 
 header {
-    margin-bottom: 10px;
+    margin-bottom: 3%;
     font-family: 'Abril Fatface', cursive;
     
 }
