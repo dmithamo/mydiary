@@ -3,7 +3,7 @@ body, html {
     height: 100%;
     font-size: 14px;
     font-family: 'Simonetta', cursive;
-    
+    box-sizing: border-box;
 }
 
 header {
@@ -38,8 +38,12 @@ header>.logo>a {
     border: none;
 }
 
-section {
+section>.section-container {
+    padding: 0 50px 0 0;
     color: rgb(75, 75, 75);
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-gap: 30px;
 }
 
 form {
@@ -88,31 +92,31 @@ input[type='submit']:hover {
     color: rgb(0, 0, 0);
 }
 
-.intro {
-    float: left;
-    width: 40%;
-    padding: 50px;
+.intro-image {
+    padding: 0 0 0 50px;
 }
-
 .intro-image>img {
     display: block;
-    width: 50%;
+    width: 100%;
     height: auto;
     margin: auto;
 }
 
 .intro-text {
     border-radius: 8px;
+    width: 60%;
+    margin: auto;
 }
-.intro>.links{
+
+.intro-text>.links{
     margin-top: 10%;
 }
 
-.intro>.links>a{
+.intro-text>.links>a{
     color: white;
     margin-top: 10%;
     border: none;
-    padding: 1.5%;
+    padding: 10px;
     box-shadow: 0 0 1px 1px rgb(34, 29, 29);
 }
 
@@ -122,10 +126,14 @@ a#register {
 }
 
 a#login {
-    padding: 1.5% 4%;
+    padding: 10px 20px;
     background-color: rgb(137, 255, 1);
 }
 
-.intro>.links>a:hover{
+.intro-text>.links>a:hover{
     box-shadow: 0 0 2px 2px rgb(61, 60, 60);
+}
+
+nav {
+
 }
