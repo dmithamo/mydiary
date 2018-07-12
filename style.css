@@ -1,0 +1,28 @@
+body, html {
+    margin: 0;
+    height: 100%;
+    font-size: 14px;
+    font-family: 'Simonetta', cursive;
+    
+}
+
+header, footer {
+    padding: 20px;
+    width: 100%;
+    box-shadow: 0 0px 3px 3px rgb(148, 147, 147);
+    text-align: center
+}
+
+header {
+    margin-bottom: 10px;
+    font-family: 'Abril Fatface', cursive;
+    
+}
+
+a {
+    text-decoration: none;
+    color: rgb(15, 15, 15);
+    outline: none;
+}
+
+
