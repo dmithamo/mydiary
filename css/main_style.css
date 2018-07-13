@@ -26,6 +26,7 @@ a {
     padding: 1% 2%;
     border-radius: 5px;
     border: 1px dotted rgb(150, 150, 150);
+    transition: all .3s;
 }
 
 a:hover {
@@ -44,6 +45,8 @@ section>.section-container {
     display: grid;
     grid-template-columns: 1fr 3fr;
     grid-gap: 30px;
+    height: 1400px;
+
 }
 
 form {
@@ -132,5 +135,24 @@ a#login {
 
 .intro-text>.links>a:hover{
     box-shadow: 0 0 2px 2px rgb(61, 60, 60);
+}
+
+footer {
+    color: rgb(129, 129, 129);
+    background-color: rgb(252, 252, 252);
+    padding: 2%;
+    text-align: center;
+    box-shadow: 0 0 3px 3px rgb(126, 126, 126);
+}
+
+footer>a {
+    border: none;
+    color: rgb(65, 61, 61);
+    display: inline;
+}
+footer>a:hover {
+    color: rgb(81, 255, 0);
+    border: none;
+    font-weight: bolder;
 }
 
