@@ -25,15 +25,54 @@ a:hover, .active-link{
 }
 
 .contents {
-    color: rgb(0, 0, 0);
-    text-transform: uppercase;
+    color: rgb(46, 46, 46);
 }
 
 #entries, #profile, #settings {
-    display: block;
+    display: none;
     height: 400px;
-    padding: 50px;
+    padding: 30px;
     transition: all, .5s;
+}
+
+#profile {
+    width: 90%;
+    margin: auto;
+}
+
+#entries-list, #profile-list, #settings-list {
+    display: none;
+}
+
+#profile>ol {
+    list-style-type: none;
+}
+
+
+ol>li>figure>img {
+    width: 150px;
+    height: auto;
+    margin: auto;
+}
+#profile>ol>li:first-child {
+    float: none;
+    clear: both;
+    width: 40%;
+    margin: auto;
+    box-shadow: 0 0 3px 3px rgb(207, 207, 207);
+    padding: 30px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+#profile>ol>li {
+    width: 20%;
+    text-align: center;
+    float: left;
+    margin-left: 50px;
+    box-shadow: 0 0 3px 3px rgb(207, 207, 207);
+    padding: 20px 10px;
+
 }
 
 

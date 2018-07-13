@@ -20,6 +20,14 @@ const settingsDiv = document.getElementById('settings');
 // Array of content divs
 const contentDivs = [entriesDiv, profileDiv, settingsDiv];
 
+// Select ols within the divs above above and put them in array
+const entriesList = document.getElementById('entries-list');
+const profileList = document.getElementById('profile-list');
+const settingsList = document.getElementById('settings-list');
+
+// Array of ols in content divs
+const contentLists = [entriesList, profileList, settingsList];
+
 // Add click listener to all anchorTags, do common function
 function addClickListeners() {
     for (const anchorTag of anchorTags) {
@@ -55,16 +63,21 @@ function removeAllContent() {
     for (const contentDiv of contentDivs) {
         contentDiv.style.display = 'none';
     }
+
+    for (const contentList of contentLists) {
+        contentList.style.display = 'none';
+    }
 }
 
 function loadEntries() {
-    alert(entriesDiv.style.display)
     entriesDiv.style.display = 'block';
-    alert(entriesDiv.style.display)
 }
 
 function loadProfile() {
+    // Display profileDiv and contents
     profileDiv.style.display = 'block';
+    profileList.style.display = 'block';
+
 }
 
 function loadSettings() {
