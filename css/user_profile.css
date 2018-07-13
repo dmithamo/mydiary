@@ -1,0 +1,192 @@
+section>.section-container {
+    margin-top: -3%;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-gap: 30px;
+}
+nav {
+    height: 450px;
+    padding: 50px;
+    background-color: black;
+}
+a {
+    border: none;
+    color: white;
+    padding: 20px 5px;
+    display: block;
+}
+
+a:hover, .active-link{
+    border: none;
+    color: rgb(81, 255, 0);
+    font-weight: bolder;
+    text-decoration: underline;
+}
+
+.contents {
+    color: rgb(46, 46, 46);
+}
+
+#entries, #profile, #settings {
+    display: none;
+    height: 400px;
+    padding: 30px;
+}
+
+#profile {
+    width: 90%;
+    margin: auto;
+}
+
+#entries-list, #profile-list, #settings-list {
+    display: none;
+}
+
+ol {
+    list-style-type: none;
+}
+
+
+ol>li>figure>img {
+    width: 150px;
+    height: auto;
+    margin: auto;
+}
+ol>li:first-child {
+    float: none;
+    clear: both;
+    width: 40%;
+    margin: auto;
+    box-shadow: 0 0 3px 3px rgb(207, 207, 207);
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+ol>li {
+    width: 20%;
+    text-align: center;
+    float: left;
+    margin-left: 50px;
+    box-shadow: 0 0 3px 3px rgb(207, 207, 207);
+    padding: 10px;
+    transition: all .5s;
+    
+}
+
+ol>li:hover {
+    box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.637);
+    padding: 12px;
+
+}
+
+li>.entry-title {
+    color: blue;
+    font-size: 16px;
+}
+
+
+li>.show-more {
+    color: rgb(110, 110, 110);
+    font-weight: bolder;
+}
+
+li>.show-more:hover {
+    color: rgb(44, 44, 44);
+    font-weight: bold;
+}
+
+/* To toggle visibility of entry body on / off */
+.visible {
+    display: none;
+}
+
+
+li>.metadata {
+    font-size: 12px;
+    font-weight: bold;
+    color: rgb(180, 180, 180); 
+}
+
+li>.metadata>.date::before {
+    content: "Dated : ";
+}
+
+li>.metadata>.date::after {
+    content: " | ";
+}
+
+li>.metadata>.number::before {
+    content: " #";
+}
+
+li>.metadata>.number::after {
+    content: " | ";
+}
+
+li>.metadata>.tags::before {
+    content: "Tags : ";
+}
+
+li>button, button#add-new {
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    display: none;
+    padding: 10px 20px;
+    margin: 2px;
+    color: white;
+    font-family: 'Simonetta', cursive;
+    transition: all .5s;
+    
+}
+
+
+button#add-new {
+    margin: auto;
+    border: 1px dotted black;    
+    color: rgb(54, 54, 54);
+    display: block;
+    background-color: rgb(255, 255, 255);
+}
+
+button#add-new:hover {
+    border: 2px solid black;    
+    color: rgb(245, 245, 245);
+    background-color: rgb(31, 28, 28);
+    box-shadow: 0 0 3px 3px rgba(240, 240, 240, 0.637);
+}
+
+li>button:nth-child(odd) {
+    background-color: red;
+}
+
+li>button:nth-child(even) {
+    background-color: rgb(25, 255, 75);
+}
+
+li:hover button {
+    display: inline;
+}
+
+
+footer {
+    color: rgb(129, 129, 129);
+    background-color: rgb(252, 252, 252);
+    padding: 2%;
+    text-align: center;
+    box-shadow: 0 0 3px 3px rgb(126, 126, 126);
+}
+
+footer>a {
+    border: none;
+    color: rgb(65, 61, 61);
+    display: inline;
+}
+footer>a:hover {
+    color: rgb(81, 255, 0);
+    border: none;
+    font-weight: bolder;
+}
+
