@@ -103,14 +103,34 @@ addClickListenersToButtons();
 function addClickListenersToButtons() {
     for (const btn of buttons) {
         btn.addEventListener('click', (event) => {
-            const elem = event.target;
-            const parentElem = event.target.parentElement;
+            const clickedBtn = event.target;
+            const parentEntry = clickedBtn.parentElement;
             
-            if (elem.innerHTML === 'Delete') {
-                parentElem.remove();
+            if (clickedBtn.innerHTML === 'Delete') {
+                parentEntry.remove();
 
-            } else if(elem.innerHTML === 'Delete') {
+            } else if(elem.innerHTML === 'Edit') {
+                // Thinking about this ...
+            }
+        });
+    }
+}
 
+// Select all entries' 'Show More' links
+const showMoreLinks = document.querySelectorAll('.show-more');
+// Add click listeners
+addClickListenersToEntries();
+
+function addClickListenersToEntries() {
+    for (const showMore of showMoreLinks) {
+        showMore.addEventListener('click', (event) => {
+            const clickedShowMore = event.target;
+            clickedShowMore.nextElementSibling.classList.toggle('visible');
+
+            if (clickedShowMore.innerHTML === '[Show more]') {
+                clickedShowMore.innerHTML = '[Show less]';
+            } else {
+                clickedShowMore.innerHTML = '[Show more]';
             }
         });
     }

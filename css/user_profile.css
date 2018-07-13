@@ -6,7 +6,7 @@ section>.section-container {
     grid-gap: 30px;
 }
 nav {
-    height: 400px;
+    height: 450px;
     padding: 50px;
     background-color: black;
 }
@@ -87,12 +87,18 @@ li>.entry-title {
 }
 
 
-li>.entry-title::after {
-    content: "[Click to read more] ";
-    color: rgb(180, 180, 180);
+li>.show-more {
+    color: rgb(110, 110, 110);
+    font-weight: bolder;
 }
 
-li>.entry-body {
+li>.show-more:hover {
+    color: rgb(44, 44, 44);
+    font-weight: bold;
+}
+
+/* To toggle visibility of entry body on / off */
+.visible {
     display: none;
 }
 
