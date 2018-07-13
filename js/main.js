@@ -71,17 +71,19 @@ function removeAllContent() {
 
 function loadEntries() {
     entriesDiv.style.display = 'block';
+    entriesList.style.display = 'block';
 }
 
 function loadProfile() {
     // Display profileDiv and contents
     profileDiv.style.display = 'block';
     profileList.style.display = 'block';
-
+    
 }
 
 function loadSettings() {
     settingsDiv.style.display = 'block';
+    settingsList.style.display = 'block';
 }
 
 function unselectAllAnchorTags() {
