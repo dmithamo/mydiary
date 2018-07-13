@@ -1,30 +1,60 @@
 'use strict';
-const entriesLink = document.getElementById('entries');
-const profileLink = document.getElementById('profile');
-const settingsLink = document.getElementById('settings');
 
-const allLinks = [entriesLink, profileLink, settingsLink];
-
-document.addEventListener('DOMContentLoaded', function(){
-    allLinks.forEach((link) => link.addEventListener('click', function(){
-        // Unselect any other clicked link
-        unselectLinks();
-
-        // Mark clicked link as selected
-        this.classList.add('active-link'); 
-    }));
-
-    entriesLink.addEventListener('click', function(){
-        loadEntries();
-    });
+document.addEventListener('DOMContentLoaded', () => {
+    addClickListeners();
 });
 
-function loadEntries() {
+// Select anchor tags and put them in array
+const entriesTag = document.getElementById('a-entries');
+const profileTag = document.getElementById('a-profile');
+const settingsTag = document.getElementById('a-settings');
+
+// Array of anchor tags
+const anchorTags = [entriesTag, profileTag, settingsTag];
+
+// Add click listener to all anchorTags, do common function
+function addClickListeners() {
+    for (const anchorTag of anchorTags) {
+
+        anchorTag.addEventListener('click', () => {
+            // unmark any other marked anchorTags
+            unselectAllAnchorTags();
+
+            // Mark clicked anchorTag
+            anchorTag.classList.add('active-link');
+
+            // Load appropriate contents depending on clicked anchorTag
+            loadContents(anchorTag);
+        });
+    }
 }
 
-function unselectLinks() {
-    // Unselect other links
-    for (const link of allLinks) {
-        link.classList.remove('active-link');
+function loadContents(tag) {
+    if (tag.id === 'a-entries') {
+        loadEntries();
+    } else if (tag.id === 'a-profile') {
+        loadProfile();
+    } else if (tag.id === 'a-settings') {
+        loadSettings();
+    }
+    
+}
+
+function loadEntries() {
+    alert("Entries!!");
+}
+
+function loadProfile() {
+    alert("Profile!!!");
+}
+
+function loadSettings() {
+    alert("Settings!!!");
+}
+
+function unselectAllAnchorTags() {
+    // Unmark other Tags
+    for (const anchorTag of anchorTags) {
+        anchorTag.classList.remove('active-link');
     }
 }
