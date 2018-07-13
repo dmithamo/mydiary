@@ -97,6 +97,25 @@ li>.metadata {
     color: rgb(180, 180, 180); 
 }
 
+li>.metadata>.date::before {
+    content: "Dated : ";
+}
+
+li>.metadata>.date::after {
+    content: " | ";
+}
+
+li>.metadata>.number::before {
+    content: " #";
+}
+
+li>.metadata>.number::after {
+    content: " | ";
+}
+
+li>.metadata>.tags::before {
+    content: "Tags : ";
+}
 
 
 footer {
