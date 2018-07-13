@@ -123,7 +123,8 @@ li>.metadata>.tags::before {
     content: "Tags : ";
 }
 
-li>button {
+li>button, button#add-new {
+    outline: none;
     border: none;
     border-radius: 5px;
     display: none;
@@ -132,7 +133,23 @@ li>button {
     color: white;
     font-family: 'Simonetta', cursive;
     transition: all .5s;
+    
+}
 
+
+button#add-new {
+    margin: auto;
+    border: 1px dotted black;    
+    color: rgb(54, 54, 54);
+    display: block;
+    background-color: rgb(255, 255, 255);
+}
+
+button#add-new:hover {
+    border: 2px solid black;    
+    color: rgb(245, 245, 245);
+    background-color: rgb(31, 28, 28);
+    box-shadow: 0 0 3px 3px rgba(240, 240, 240, 0.637);
 }
 
 li>button:nth-child(odd) {
