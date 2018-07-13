@@ -12,6 +12,14 @@ const settingsTag = document.getElementById('a-settings');
 // Array of anchor tags
 const anchorTags = [entriesTag, profileTag, settingsTag];
 
+// Select divs linked to anchorTags above and put them in array
+const entriesDiv = document.getElementById('entries');
+const profileDiv = document.getElementById('profile');
+const settingsDiv = document.getElementById('settings');
+
+// Array of content divs
+const contentDivs = [entriesDiv, profileDiv, settingsDiv];
+
 // Add click listener to all anchorTags, do common function
 function addClickListeners() {
     for (const anchorTag of anchorTags) {
@@ -30,6 +38,9 @@ function addClickListeners() {
 }
 
 function loadContents(tag) {
+    // Remove everything from contents div
+    removeAllContent();
+
     if (tag.id === 'a-entries') {
         loadEntries();
     } else if (tag.id === 'a-profile') {
@@ -40,16 +51,24 @@ function loadContents(tag) {
     
 }
 
+function removeAllContent() {
+    for (const contentDiv of contentDivs) {
+        contentDiv.style.display = 'none';
+    }
+}
+
 function loadEntries() {
-    alert("Entries!!");
+    alert(entriesDiv.style.display)
+    entriesDiv.style.display = 'block';
+    alert(entriesDiv.style.display)
 }
 
 function loadProfile() {
-    alert("Profile!!!");
+    profileDiv.style.display = 'block';
 }
 
 function loadSettings() {
-    alert("Settings!!!");
+    settingsDiv.style.display = 'block';
 }
 
 function unselectAllAnchorTags() {

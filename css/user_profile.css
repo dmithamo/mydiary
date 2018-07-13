@@ -24,6 +24,19 @@ a:hover, .active-link{
     text-decoration: underline;
 }
 
+.contents {
+    color: rgb(0, 0, 0);
+    text-transform: uppercase;
+}
+
+#entries, #profile, #settings {
+    display: block;
+    height: 400px;
+    padding: 50px;
+    transition: all, .5s;
+}
+
+
 footer {
     color: rgb(129, 129, 129);
     background-color: rgb(252, 252, 252);
