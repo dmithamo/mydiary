@@ -36,7 +36,7 @@ a:hover, .active-link{
 }
 
 #profile {
-    width: 95%;
+    width: 90%;
     margin: auto;
 }
 
@@ -60,7 +60,7 @@ ol>li:first-child {
     width: 40%;
     margin: auto;
     box-shadow: 0 0 3px 3px rgb(207, 207, 207);
-    padding: 30px;
+    padding: 20px;
     text-align: center;
     margin-bottom: 30px;
 }
@@ -71,13 +71,13 @@ ol>li {
     float: left;
     margin-left: 50px;
     box-shadow: 0 0 3px 3px rgb(207, 207, 207);
-    padding: 20px 10px;
+    padding: 10px 10px;
 
 }
 
 li>.entry-title {
     color: blue;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 li>.entry-body::after {
