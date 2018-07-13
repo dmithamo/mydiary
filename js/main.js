@@ -12,21 +12,6 @@ const settingsTag = document.getElementById('a-settings');
 // Array of anchor tags
 const anchorTags = [entriesTag, profileTag, settingsTag];
 
-// Select divs linked to anchorTags above and put them in array
-const entriesDiv = document.getElementById('entries');
-const profileDiv = document.getElementById('profile');
-const settingsDiv = document.getElementById('settings');
-
-// Array of content divs
-const contentDivs = [entriesDiv, profileDiv, settingsDiv];
-
-// Select ols within the divs above above and put them in array
-const entriesList = document.getElementById('entries-list');
-const profileList = document.getElementById('profile-list');
-const settingsList = document.getElementById('settings-list');
-
-// Array of ols in content divs
-const contentLists = [entriesList, profileList, settingsList];
 
 // Add click listener to all anchorTags, do common function
 function addClickListeners() {
@@ -44,6 +29,23 @@ function addClickListeners() {
         });
     }
 }
+
+
+// Select divs linked to anchorTags above and put them in array
+const entriesDiv = document.getElementById('entries');
+const profileDiv = document.getElementById('profile');
+const settingsDiv = document.getElementById('settings');
+
+// Array of content divs
+const contentDivs = [entriesDiv, profileDiv, settingsDiv];
+
+// Select ols within the divs above above and put them in array
+const entriesList = document.getElementById('entries-list');
+const profileList = document.getElementById('profile-list');
+const settingsList = document.getElementById('settings-list');
+
+// Array of ols in content divs
+const contentLists = [entriesList, profileList, settingsList];
 
 function loadContents(tag) {
     // Remove everything from contents div
@@ -90,5 +92,26 @@ function unselectAllAnchorTags() {
     // Unmark other Tags
     for (const anchorTag of anchorTags) {
         anchorTag.classList.remove('active-link');
+    }
+}
+
+// Select all buttons
+const buttons = document.querySelectorAll('button');
+// add click listeners to btns
+addClickListenersToButtons();
+
+function addClickListenersToButtons() {
+    for (const btn of buttons) {
+        btn.addEventListener('click', (event) => {
+            const elem = event.target;
+            const parentElem = event.target.parentElement;
+            
+            if (elem.innerHTML === 'Delete') {
+                parentElem.remove();
+
+            } else if(elem.innerHTML === 'Delete') {
+
+            }
+        });
     }
 }

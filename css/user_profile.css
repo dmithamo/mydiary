@@ -86,10 +86,16 @@ li>.entry-title {
     font-size: 16px;
 }
 
-li>.entry-body::after {
-    content: " ... [Click to read more] ";
+
+li>.entry-title::after {
+    content: "[Click to read more] ";
     color: rgb(180, 180, 180);
 }
+
+li>.entry-body {
+    display: none;
+}
+
 
 li>.metadata {
     font-size: 12px;
@@ -115,6 +121,30 @@ li>.metadata>.number::after {
 
 li>.metadata>.tags::before {
     content: "Tags : ";
+}
+
+li>button {
+    border: none;
+    border-radius: 5px;
+    display: none;
+    padding: 10px 20px;
+    margin: 2px;
+    color: white;
+    font-family: 'Simonetta', cursive;
+    transition: all .5s;
+
+}
+
+li>button:nth-child(odd) {
+    background-color: red;
+}
+
+li>button:nth-child(even) {
+    background-color: rgb(25, 255, 75);
+}
+
+li:hover button {
+    display: inline;
 }
 
 
