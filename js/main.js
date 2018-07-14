@@ -109,7 +109,7 @@ function addClickListenersToButtons() {
             if (clickedBtn.innerHTML === 'Delete') {
                 parentEntry.remove();
 
-            } else if(elem.innerHTML === 'Edit') {
+            } else if(clickedBtn.innerHTML === 'Edit') {
                 // Thinking about this ...
             }
         });
