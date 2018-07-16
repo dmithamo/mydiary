@@ -159,11 +159,11 @@ button#add-new:hover {
 }
 
 li>button:nth-child(odd) {
-    background-color: red;
+    background-color: rgb(25, 255, 75);
 }
 
 li>button:nth-child(even) {
-    background-color: rgb(25, 255, 75);
+    background-color: red;
 }
 
 li:hover button {
