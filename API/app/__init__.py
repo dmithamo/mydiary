@@ -13,7 +13,7 @@ BASE_URL = '/mydiary/api/v1'
 app = Flask(__name__)
 
 
-@app.route('{}/entries'.format(BASE_URL), methods=['GET'])
+@app.route('{}/entries/'.format(BASE_URL), methods=['GET'])
 def fetch_all_entries():
     """
         Responds to a GET request to '/mydiary/api/v1/entries'
