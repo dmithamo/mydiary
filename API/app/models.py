@@ -57,7 +57,7 @@ class Entry:
         """
         return '< {} : {} >'.format(self.entry_id, self.entry_title)
 
-    def fetch_all_entries(self):
+    def get_all_entries(self):
         """
             Retrieve the entire collection of entries
         """
