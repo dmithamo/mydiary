@@ -33,11 +33,11 @@ def fetch_all_entries():
         }
         # Add dict version of entry to all_entries list
         all_entries.append(entry_as_dict)
-    
+
     # Handle empty all_entries list
-    if len(all_entries) == 0:
+    if not all_entries:
         result = {
-            'message' : 'No entries yet.'
+            'message': 'No entries yet.'
         }
     else:
         result = all_entries
