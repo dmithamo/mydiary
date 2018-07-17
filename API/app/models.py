@@ -57,8 +57,9 @@ class Entry:
         """
         return '< {} : {} >'.format(self.entry_id, self.entry_title)
 
-    def get_all_entries(self):
+    @classmethod
+    def get_all_entries(cls):
         """
             Retrieve the entire collection of entries
         """
-        return self.entries
+        return cls.entries
