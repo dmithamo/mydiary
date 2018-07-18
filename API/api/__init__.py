@@ -3,7 +3,7 @@
     routes.
 """
 
-from flask import Flask, jsonify, abort
+from flask import Flask, request, jsonify, json, abort
 from api.models import Diary, Entry
 import config
 
@@ -17,39 +17,45 @@ api.config.from_object(config.DevelopmentConfig)
 DIARY = Diary()
 
 
-@api.route('{}/entries/'.format(BASE_URL), methods=['GET'])
+@api.route('{}/entries/'.format(BASE_URL), methods=['GET', 'POST'])
 def fetch_all_entries():
     """
         Responds to a GET request to '/mydiary/api/v1/entries'
         endpoint
     """
-    all_entries = []
+    # Handle 'GET' request
+    if request.method == 'GET':
+        all_entries = []
 
-    # Loop through list of entry objects from Diary.entries
-    # Render each as a dict with properties as key-value pairs
-    for entry in DIARY.get_entries():
-        entry_as_dict = {
-            'entry_id': entry.entry_id,
-            'entry_title': entry.entry_title,
-            'entry_body': entry.entry_body,
-            'entry_timestamp': entry.entry_timestamp,
-            'entry_tags': entry.entry_tags
-        }
-        # Add dict version of entry to all_entries list
-        all_entries.append(entry_as_dict)
+        # Loop through list of entry objects from Diary.entries
+        # Render each as a dict with properties as key-value pairs
+        for entry in DIARY.get_entries():
+            entry_as_dict = {
+                'entry_id': entry.entry_id,
+                'entry_title': entry.entry_title,
+                'entry_body': entry.entry_body,
+                'entry_timestamp': entry.entry_timestamp,
+                'entry_tags': entry.entry_tags
+            }
+            # Add dict version of entry to all_entries list
+            all_entries.append(entry_as_dict)
 
-    # Handle empty all_entries list
-    if not all_entries:
-        result = {
-            'message': 'No entries found.'
-        }
-    else:
-        result = all_entries
+        # Handle empty all_entries list
+        if not all_entries:
+            result = {
+                'message': 'No entries found.'
+            }
+        else:
+            result = all_entries
 
-    # Serve response as json, along with status code
-    response = jsonify(result)
-    response.status_code = 200
-    return response
+        # Serve response as json, along with status code
+        response = jsonify(result)
+        response.status_code = 200
+        return response
+
+    # Handle 'POST' request
+    elif request.method == 'POST':
+        pass
 
 
 @api.route('{}/entries/<int:id>/'.format(BASE_URL), methods=['GET'])
