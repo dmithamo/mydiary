@@ -71,9 +71,9 @@ class Entry:
         return cls.entries
 
     @classmethod
-    def get_single_entry(cls, entry_id):
+    def get_single_entry(cls, id):
         """
-            Retrieve entry whose entry.entry_id == entry_id from the collection of
+            Retrieve entry whose entry.entry_id == id from the collection of
             entries
         """
 
@@ -82,7 +82,7 @@ class Entry:
         # If no match, return None
         result = None
         for entry in cls.get_all_entries():
-            if entry.entry_id == entry_id:
+            if entry.entry_id == id:
                 result = entry
                 break
 

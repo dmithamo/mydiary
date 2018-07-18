@@ -48,17 +48,17 @@ def fetch_all_entries():
     response.status_code = 200
     return response
 
-@app.route('{}/entries/<int:entry_id>/'.format(BASE_URL), methods=['GET'])
-def fetch_single_entry(entry_id):
+@app.route('{}/entries/<int:id>/'.format(BASE_URL), methods=['GET'])
+def fetch_single_entry(id):
     """
     Responds to a GET request to '/mydiary/api/v1/entries/id'
     endpoint
     """
-    entry = Entry.get_single_entry(entry_id)
+    entry = Entry.get_single_entry(id)
 
     # Handle no id found (result=None)
     if not entry:
-        response = jsonify(message="Error. Entry with id '{}' not found".format(entry_id)), 404
+        response = jsonify(message="Error. Entry with id '{}' not found".format(id)), 404
 
     # Render entry as dict, if one is found
     else:
