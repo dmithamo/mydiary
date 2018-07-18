@@ -4,13 +4,14 @@
 """
 
 from flask import Flask, jsonify
-from models import Entry
-
+from app.models import Entry
+import config
 
 # Constant BASE_URL is prefixed to each route
 BASE_URL = '/mydiary/api/v1'
 
 app = Flask(__name__)
+app.config.from_object(config.DevelopmentConfig)
 
 
 @app.route('{}/entries/'.format(BASE_URL), methods=['GET'])
