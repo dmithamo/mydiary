@@ -1,20 +1,23 @@
 """
-    Module initializes a Flask instance and defines the app's
+    Module initializes a Flask instance and defines the api's
     routes.
 """
 
 from flask import Flask, jsonify, abort
-from app.models import Entry
+from api.models import Diary, Entry
 import config
 
 # Constant BASE_URL is prefixed to each route
 BASE_URL = '/mydiary/api/v1'
 
-app = Flask(__name__)
-app.config.from_object(config.DevelopmentConfig)
+api = Flask(__name__)
+api.config.from_object(config.DevelopmentConfig)
+
+# Create an instance of the Diary class - represents db
+DIARY = Diary()
 
 
-@app.route('{}/entries/'.format(BASE_URL), methods=['GET'])
+@api.route('{}/entries/'.format(BASE_URL), methods=['GET'])
 def fetch_all_entries():
     """
         Responds to a GET request to '/mydiary/api/v1/entries'
@@ -22,9 +25,9 @@ def fetch_all_entries():
     """
     all_entries = []
 
-    # Loop through list of entries from Entries.entries
+    # Loop through list of entry objects from Diary.entries
     # Render each as a dict with properties as key-value pairs
-    for entry in Entry.get_all_entries():
+    for entry in DIARY.get_entries():
         entry_as_dict = {
             'entry_id': entry.entry_id,
             'entry_title': entry.entry_title,
@@ -38,7 +41,7 @@ def fetch_all_entries():
     # Handle empty all_entries list
     if not all_entries:
         result = {
-            'message': 'No entries yet.'
+            'message': 'No entries found.'
         }
     else:
         result = all_entries
@@ -48,17 +51,19 @@ def fetch_all_entries():
     response.status_code = 200
     return response
 
-@app.route('{}/entries/<int:id>/'.format(BASE_URL), methods=['GET'])
+
+@api.route('{}/entries/<int:id>/'.format(BASE_URL), methods=['GET'])
 def fetch_single_entry(id):
     """
-    Responds to a GET request to '/mydiary/api/v1/entries/id'
-    endpoint
+        Responds to a GET request to '/mydiary/api/v1/entries/id'
+        endpoint
     """
-    entry = Entry.get_single_entry(id)
+    entry = DIARY.get_entry(id)
 
     # Handle no id found (result=None)
     if not entry:
-        response = jsonify(message="Error. Entry with id '{}' not found".format(id)), 404
+        response = jsonify(
+            message="Error. Entry with id '{}' not found".format(id)), 404
 
     # Render entry as dict, if one is found
     else:
@@ -75,4 +80,4 @@ def fetch_single_entry(id):
 
 
 if __name__ == '__main__':
-    app.run()
+    api.run()
