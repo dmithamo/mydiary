@@ -18,8 +18,7 @@ class Diary:
 
             get_entries() - returns all entries in entries list,
 
-            fetch_single_entry(entry_id) - returns entry with given
-                entry_id
+            get_entry(entry_id) - returns entry with given entry_id
 
             add_entry(*args) - appends an entry  to entries list
               [*args = Entry object properties]
