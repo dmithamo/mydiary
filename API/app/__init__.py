@@ -3,7 +3,7 @@
     routes.
 """
 
-from flask import Flask, jsonify
+from flask import Flask, jsonify, abort
 from app.models import Entry
 import config
 
@@ -46,6 +46,31 @@ def fetch_all_entries():
     # Serve response as json, along with status code
     response = jsonify(result)
     response.status_code = 200
+    return response
+
+@app.route('{}/entries/<int:id>/'.format(BASE_URL), methods=['GET'])
+def fetch_single_entry(id):
+    """
+    Responds to a GET request to '/mydiary/api/v1/entries/id'
+    endpoint
+    """
+    entry = Entry.get_single_entry(id)
+
+    # Handle no id found (result=None)
+    if not entry:
+        response = jsonify(message="Error. Entry with id '{}' not found".format(id)), 404
+
+    # Render entry as dict, if one is found
+    else:
+        result = {
+            'entry_id': entry.entry_id,
+            'entry_title': entry.entry_title,
+            'entry_body': entry.entry_body,
+            'entry_timestamp': entry.entry_timestamp,
+            'entry_tags': entry.entry_tags
+        }
+        response = jsonify(result)
+        response.status_code = 200
     return response
 
 
