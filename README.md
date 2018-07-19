@@ -4,8 +4,6 @@ This repo contains out the UI templates and API backend for an online journal wh
 
 ## UI Features
 
---------
-
 The UI provides intuitive pages, with elements for user registration and login.
 On login, a user can navigate to an entries page, profile page, and a settings page.
 Preview available at [dmithamo/mydiary](https://dmithamo.github.io/mydiary/index.html).
@@ -13,8 +11,6 @@ Preview available at [dmithamo/mydiary](https://dmithamo.github.io/mydiary/index
 **PS** : Work in Progress. Some UI elements may be unfucntional.
 
 ## API Features
-
---------
 
 The API contains the endpoints below:
   
@@ -27,8 +23,6 @@ The API contains the endpoints below:
 | DELETE /entries/id     | Delete an entry          | ft-api-delete-entry-159102048       |
 
 ## Manual testing of the API
-
---------
 
 To manually test the endpoints, configure and run the server as below:
 
