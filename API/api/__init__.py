@@ -17,48 +17,75 @@ api.config.from_object(config.DevelopmentConfig)
 DIARY = Diary()
 
 
-@api.route('{}/entries/'.format(BASE_URL), methods=['GET', 'POST'])
+@api.route('{}/entries'.format(BASE_URL), methods=['GET'])
 def fetch_all_entries():
     """
         Responds to a GET request to '/mydiary/api/v1/entries'
         endpoint
     """
-    # Handle 'GET' request
-    if request.method == 'GET':
-        all_entries = []
+    all_entries = []
 
-        # Loop through list of entry objects from Diary.entries
-        # Render each as a dict with properties as key-value pairs
-        for entry in DIARY.get_entries():
-            entry_as_dict = {
-                'entry_id': entry.entry_id,
-                'entry_title': entry.entry_title,
-                'entry_body': entry.entry_body,
-                'entry_timestamp': entry.entry_timestamp,
-                'entry_tags': entry.entry_tags
-            }
-            # Add dict version of entry to all_entries list
-            all_entries.append(entry_as_dict)
+    # Loop through list of entry objects from Diary.entries
+    # Render each as a dict with properties as key-value pairs
+    for entry in DIARY.get_entries():
+        entry_as_dict = {
+            'entry_id': entry.entry_id,
+            'entry_title': entry.entry_title,
+            'entry_body': entry.entry_body,
+            'entry_created_on': entry.entry_created_on,
+            'entry_tags': entry.entry_tags
+        }
+        # Add dict version of entry to all_entries list
+        all_entries.append(entry_as_dict)
 
-        # Handle empty all_entries list
-        if not all_entries:
-            result = {
-                'message': 'No entries found.'
-            }
+    # Handle empty all_entries list
+    if not all_entries:
+        result = {
+            'message': 'No entries found.'
+        }
+    else:
+        result = all_entries
+
+    # Serve response as json, along with status code
+    response = jsonify(result)
+    response.status_code = 200
+    return response
+
+@api.route('{}/entries'.format(BASE_URL), methods=['POST'])
+def add_an_entry():
+    """
+        Responds to a POST request to '/mydiary/api/v1/entries'
+        endpoint
+    """
+    title = request.args.get('title')
+    body = request.args.get('body')
+    tags = request.args.get('tags')
+    tags = tags.split(' ')
+
+    if title and body:
+        entry = DIARY.add_entry(title, body, tags)
+
+        # Handle entry not created
+        if not entry:
+            response = jsonify({'Not created' : 'Similar entry exists'})
+            response.status_code = 400
         else:
-            result = all_entries
+            response = jsonify({
+                'entry added' : {
+                    'title' : title,
+                    'body' : body,
+                    'tags' : tags
+                }
+            })
+            response.status_code = 201
 
-        # Serve response as json, along with status code
-        response = jsonify(result)
-        response.status_code = 200
-        return response
+    else:
+        response = jsonify({'Not created' : 'Title or body missing'})
+        response.status_code = 400
 
-    # Handle 'POST' request
-    elif request.method == 'POST':
-        pass
+    return response
 
-
-@api.route('{}/entries/<int:id>/'.format(BASE_URL), methods=['GET'])
+@api.route('{}/entries/<int:id>'.format(BASE_URL), methods=['GET'])
 def fetch_single_entry(id):
     """
         Responds to a GET request to '/mydiary/api/v1/entries/id'
@@ -77,12 +104,13 @@ def fetch_single_entry(id):
             'entry_id': entry.entry_id,
             'entry_title': entry.entry_title,
             'entry_body': entry.entry_body,
-            'entry_timestamp': entry.entry_timestamp,
+            'entry_created_on': entry.entry_created_on,
             'entry_tags': entry.entry_tags
         }
         response = jsonify(result)
         response.status_code = 200
     return response
+
 
 
 if __name__ == '__main__':
