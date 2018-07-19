@@ -1,12 +1,8 @@
 # MyDiary
 
-## An Intro
+This repo contains out the UI templates and API backend for an online journal where users can chronicle their thoughts, feelings and dark secrets.
 
---------
-
-This builds out the UI templates and API backend for an online journal where users can chronicle their thoughts, feelings and dark secrets.
-
-### UI Features
+## UI Features
 
 --------
 
@@ -16,21 +12,21 @@ Preview available at [dmithamo/mydiary](https://dmithamo.github.io/mydiary/index
 
 **PS** : Work in Progress. Some UI elements may be unfucntional.
 
-### API Features
+## API Features
 
 --------
 
 The API contains the endpoints below:
   
 | Endpoint               | What if Does             | Git Branch                          |
-| --------------------:  | -----------------------: | --------------------------------:   |
+| :--------------------  | :----------------------- | :--------------------------------   |
 | GET  /entries          | Fetch all entries        | ft-api-fetch-all-entries-159100964  |
 | GET  /entries/id       | Fetch single entry       | ft-api-fetch-single-entry-159101143 |
 | POST /entries          | Add an entry             | ft-api-add-entry-159101428          |
 | PUT /entries/id        | Modify an entry          | ft-api-modify-entry-159101719       |
 | DELETE /entries/id     | Delete an entry          | ft-api-delete-entry-159102048       |
 
-### Manual testing of the API
+## Manual testing of the API
 
 --------
 
