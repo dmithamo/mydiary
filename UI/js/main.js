@@ -127,10 +127,10 @@ function addClickListenersToEntries() {
             const clickedShowMore = event.target;
             clickedShowMore.nextElementSibling.classList.toggle('visible');
 
-            if (clickedShowMore.innerHTML === '[Show more]') {
-                clickedShowMore.innerHTML = '[Show less]';
+            if (clickedShowMore.innerHTML === 'Show more') {
+                clickedShowMore.innerHTML = 'Show less';
             } else {
-                clickedShowMore.innerHTML = '[Show more]';
+                clickedShowMore.innerHTML = 'Show more';
             }
         });
     }
