@@ -1,29 +1,49 @@
 # MyDiary
-Repo for an online journal where users can chronicle their thoughts, feelings and dark secrets.
 
-### An Intro
-`MyDiary` is an app designed to supplant your typical pen and paper journal.
-It is an online platform where you can pen your unforgetable experiences, detail your
-thoughts, assess your feelings, etc. etc.
+## An Intro
 
-### Features
-`MyDiary` provides the following features :
-* An intuitive, easy to use UI - the app is designed to be used exactly as your pen and paper
-journal is (substituting the pen and paper for a keyboard and screen). You simply create an account,
-login, and start pouring out your thoughts. Quite like buying a journal, flipping it to an empty page,
-and writing!
+--------
 
-* Lifetime storage, right to be forgoten - we will store your memories until you decide to delete them. 
-And when you ask us to, we will completely remove them from all our records, disappearing them forever.
+This builds out the UI templates and API backend for an online journal where users can chronicle their thoughts, feelings and dark secrets.
 
-* Security - only you can view the plain text version of your entries. Your entries are stored
-as encrypted records, in a format that is entirely incomprehensible to any other party besides
-you. Decryption to readable form strictly requires your login credentials. 
-(Please keep your password as securely as possible).
+### UI Features
 
-* We are constantly adding new features. Stay tuned to be in the know.
+--------
 
-### How to Use `MyDiary`
-Visit [mydiary/login](www.mydiary.com),  login, and write away! Simple as that!
+The UI provides intuitive pages, with elements for user registration and login.
+On login, a user can navigate to an entries page, profile page, and a settings page.
+Preview available at [dmithamo/mydiary](https://dmithamo.github.io/mydiary/index.html).
 
-#### Enjoy :) 
+**PS** : Work in Progress. Some UI elements may be unfucntional.
+
+### API Features
+
+--------
+
+The API contains the endpoints below:
+  
+| Endpoint               | What if Does             | Git Branch                          |
+| --------------------:  | -----------------------: | --------------------------------:   |
+| GET  /entries          | Fetch all entries        | ft-api-fetch-all-entries-159100964  |
+| GET  /entries/id       | Fetch single entry       | ft-api-fetch-single-entry-159101143 |
+| POST /entries          | Add an entry             | ft-api-add-entry-159101428          |
+| PUT /entries/id        | Modify an entry          | ft-api-modify-entry-159101719       |
+| DELETE /entries/id     | Delete an entry          | ft-api-delete-entry-159102048       |
+
+### Manual testing of the API
+
+--------
+
+To manually test the endpoints, configure and run the server as below:
+
+1. `git checkout <relevant-branch>` or `git checkout <develop-branch>` for all the endpoints
+
+2. `cd API/`
+
+3. Run `pip install -r requirements.txt` to install dependencies
+
+4. Run `export FLASK_APP=api/__init__.py`
+
+5. Run `flask run` to start the server
+
+The API is now available at `localhost:5000/mydiary/api/v1/`.
