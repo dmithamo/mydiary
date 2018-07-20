@@ -117,9 +117,15 @@ function addClickListenersToButtons() {
          || event.target.innerHTML === 'Edit' || event.target.innerHTML === 'New')) {
             const clickedBtn = event.target;
             const parentEntry = clickedBtn.parentElement;
+
             if (clickedBtn.innerHTML === 'Delete') {
                 parentEntry.remove();
             }
+            
+            else if(clickedBtn.innerHTML === 'Edit') {
+                editEntry(parentEntry);
+            }
+
             else if(clickedBtn.innerHTML === 'New') {
                 const title = prompt("Provide a title : ", "");
                 const body = prompt("Type out your entry : ", "");
@@ -130,6 +136,27 @@ function addClickListenersToButtons() {
             }
         }
     });
+}
+
+function editEntry(entry) {
+    // Modify existing entry
+    const currentTitle = entry.getElementsByTagName('h4')[0].innerText;
+    const newTitle = prompt("Edit title. Esc to cancel : ", currentTitle);
+    if (newTitle) {
+        entry.getElementsByTagName('h4')[0].innerText = newTitle;
+    }
+
+    const currentBody = entry.getElementsByTagName('p')[1].innerText;
+    const newBody = prompt("Edit body. Esc to cancel : ", currentBody);
+    if (newBody) {
+        entry.getElementsByTagName('p')[1].innerText = newBody;
+    }
+
+    const currentTags = entry.getElementsByTagName('p')[2].getElementsByTagName('span')[2].innerText;
+    const newTags = prompt("Edit Tags. Esc to cancel : ", currentTags);
+    if (newTags) {
+        entry.getElementsByTagName('p')[2].getElementsByTagName('span')[2].innerText = newTags;
+    }
 }
 
 function addNewEntry(title, body, tags) {
@@ -159,31 +186,6 @@ function addClickListenersToEntries() {
             clickedShowMore.innerHTML = 'Show more';
         }
     });
-}
-
-// Select all entry titles and entry bodies 
-const entryTitles = document.querySelectorAll('.entry-title');
-const entryBodies = document.querySelectorAll('.entry-body');
-// Combine into one array for common action
-const titlesAndBodies = [...entryTitles, ...entryBodies];
-
-// Add dblclick listeners
-onClickTitlesAndBodies();
-
-function onClickTitlesAndBodies() {
-    // On dblclick, provide prompt for editing
-    for (const entryParam of titlesAndBodies) {
-        // Add tool-tip
-        entryParam.setAttribute('title', 'Double click the title or body to edit it');
-        // Add dblclick listener, provide propmt on dblclick
-        entryParam.addEventListener('dblclick', (event) => {
-            const clickedParam = event.target;
-            const newText = prompt('Edit this to?', clickedParam.innerHTML)
-            if (newText) {
-                clickedParam.innerHTML = newText;
-            };
-        });
-    }
 }
 
 function assignProperNavHeight() {
