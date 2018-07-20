@@ -113,7 +113,8 @@ function addClickListenersToButtons() {
     // Delete and Edit btns : action on click.
     // Use event delegation, because of newly added entries
     document.addEventListener('click', (event) => {
-        if (event.target && (event.target.innerHTML === 'Delete' || event.target.innerHTML === 'New')) {
+        if (event.target && (event.target.innerHTML === 'Delete'
+         || event.target.innerHTML === 'Edit' || event.target.innerHTML === 'New')) {
             const clickedBtn = event.target;
             const parentEntry = clickedBtn.parentElement;
             if (clickedBtn.innerHTML === 'Delete') {

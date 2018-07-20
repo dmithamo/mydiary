@@ -189,8 +189,12 @@ button#add-new:hover {
     font-size: 1.1rem;
 }
 
-li>button {
+li>button.delete-btn {
     background-color: red;
+}
+
+li>button.edit-btn {
+    background-color: rgb(16, 13, 184);
 }
 
 li>button:hover {
