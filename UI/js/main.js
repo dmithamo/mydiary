@@ -58,7 +58,6 @@ function loadContents(tag) {
     } else if (tag.id === 'a-settings') {
         loadSettings();
     }
-    
 }
 
 function removeAllContent() {
@@ -82,7 +81,6 @@ function loadProfile() {
     // Display profileDiv and contents
     profileDiv.style.display = 'block';
     profileList.style.display = 'block';
-    
 };
 
 function loadSettings() {
