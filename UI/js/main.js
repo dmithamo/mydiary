@@ -12,7 +12,6 @@ const settingsTag = document.getElementById('a-settings');
 // Array of anchor tags
 const anchorTags = [entriesTag, profileTag, settingsTag];
 
-
 // Add click listener to all anchorTags, do common function
 function addClickListeners() {
     for (const anchorTag of anchorTags) {
@@ -29,7 +28,6 @@ function addClickListeners() {
         });
     }
 }
-
 
 // Select divs linked to anchorTags above and put them in array
 const entriesDiv = document.getElementById('entries');
@@ -142,8 +140,6 @@ function addNewEntry(title, body, tags) {
     document.getElementById('entries-list').appendChild(newEnty);
     // Re-assign nav-bar height
     assignProperNavHeight();
-
-
 }
 
 // Select all entries' 'Show More' links
@@ -192,7 +188,6 @@ function onClickTitlesAndBodies() {
         });
     }
 }
-
 
 function assignProperNavHeight() {
     // Check height of container, assign to nav bar
