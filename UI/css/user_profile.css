@@ -1,13 +1,18 @@
-section>.section-container {
-    margin-top: -3%;
-    padding: 0;
-    display: grid;
-    grid-template-columns: 1fr 4fr;
-    grid-gap: 30px;
+.container {
+    position: relative;
+    min-height: 100%;
+    max-width: 100%;
+    margin: 0;
 }
+
+section>.section-container {
+    padding: 0;
+    margin: 0;
+}
+
 nav {
-    height: 450px;
-    padding: 50px;
+    padding: 20%; 
+    height: 100%;
     background-color: black;
 }
 a {
@@ -17,12 +22,14 @@ a {
     display: block;
 }
 
+
 a:hover, .active-link{
     border: none;
-    color: rgb(81, 255, 0);
+    color: rgb(40, 210, 240);
     font-weight: bolder;
-    text-decoration: underline;
+    font-size: 1.1rem;
 }
+
 
 .contents {
     color: rgb(46, 46, 46);
@@ -30,13 +37,16 @@ a:hover, .active-link{
 
 #entries, #profile, #settings {
     display: none;
-    height: 400px;
-    padding: 30px;
+}
+
+#settings {
+    margin-top: 13%;
 }
 
 #profile {
     width: 90%;
     margin: auto;
+    margin-top: 3%;
 }
 
 #entries-list, #profile-list, #settings-list {
@@ -47,12 +57,40 @@ ol {
     list-style-type: none;
 }
 
+ul#entries-list {
+    width: 90%;
+    margin: auto;
+    list-style-type: none;
+}
+
+ul>li>h4, ul>li>p {
+    padding: 2px;
+    margin: 2px;
+}
+
+ul>li {
+    font-size: 0.9rem;
+    float: left;
+    width: 220px;
+    height: 220px;
+    box-shadow: 0 0 3px 3px rgb(207, 207, 207);
+    padding: 10px;
+    text-align: center;
+    margin: 18px;
+}
+
+ul>li:hover {
+    box-shadow: 0 0 3px 3px rgb(141, 139, 139);
+    transition: all .8s;
+}
+
 
 ol>li>figure>img {
     width: 150px;
     height: auto;
     margin: auto;
 }
+
 ol>li:first-child {
     float: none;
     clear: both;
@@ -68,6 +106,7 @@ ol>li {
     width: 20%;
     text-align: center;
     float: left;
+    margin-top: 15px;
     margin-left: 50px;
     box-shadow: 0 0 3px 3px rgb(207, 207, 207);
     padding: 10px;
@@ -78,22 +117,24 @@ ol>li {
 ol>li:hover {
     box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.637);
     padding: 12px;
-
+    
 }
 
 li>.entry-title {
-    color: blue;
+    color: rgb(82, 82, 82);
     font-size: 16px;
 }
 
 
 li>.show-more {
-    color: rgb(110, 110, 110);
+    color: rgb(2, 115, 243);
     font-weight: bolder;
+    font-size: 0.8rem;
+    text-decoration: underline;
 }
 
 li>.show-more:hover {
-    color: rgb(44, 44, 44);
+    color: rgb(0, 91, 196);
     font-weight: bold;
 }
 
@@ -139,44 +180,52 @@ li>button, button#add-new {
     color: white;
     font-family: 'Simonetta', cursive;
     transition: all .5s;
+    font-size: 1.06rem;
+    font-weight: bolder;
     
 }
 
-
 button#add-new {
+    background: none;
     margin: auto;
+    margin-top: 20px;
     border: 1px dotted black;    
-    color: rgb(54, 54, 54);
+    color: rgb(14, 14, 14);
     display: block;
-    background-color: rgb(255, 255, 255);
 }
 
 button#add-new:hover {
     border: 2px solid black;    
-    color: rgb(245, 245, 245);
-    background-color: rgb(31, 28, 28);
-    box-shadow: 0 0 3px 3px rgba(240, 240, 240, 0.637);
+    box-shadow: 0 0 2px 2px rgba(240, 240, 240, 0.637);
+    font-weight: bolder;
+    font-size: 1.1rem;
 }
 
-li>button:nth-child(odd) {
-    background-color: rgb(25, 255, 75);
-}
-
-li>button:nth-child(even) {
+li>button.delete-btn {
     background-color: red;
+}
+
+li>button.edit-btn {
+    background-color: rgb(16, 13, 184);
+}
+
+li>button:hover {
+    border: 1px solid black;
 }
 
 li:hover button {
     display: inline;
 }
 
-
 footer {
+    margin-top: 0;
+    height: 50px;
     color: rgb(129, 129, 129);
     background-color: rgb(252, 252, 252);
-    padding: 2%;
+    padding: 10px;
     text-align: center;
-    box-shadow: 0 0 3px 3px rgb(126, 126, 126);
+    box-shadow: 0 0 2px 2px rgb(31, 31, 31);
+    overflow: hidden;
 }
 
 footer>a {

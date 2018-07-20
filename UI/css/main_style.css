@@ -1,21 +1,16 @@
 body, html {
     margin: 0;
     height: 100%;
-    font-size: 14px;
+    font-size: 16px;
     font-family: 'Simonetta', cursive;
     box-sizing: border-box;
 }
 
 header {
-    padding: 2%;
+    padding: 3%;
     text-align: center;
     box-shadow: 0 0 3px 3px rgb(214, 214, 214);
-}
-
-header {
-    margin-bottom: 3%;
     font-family: 'Abril Fatface', cursive;
-    
 }
 
 a {
@@ -40,19 +35,17 @@ header>.logo>a {
 }
 
 section>.section-container {
-    padding: 0 50px 0 0;
     color: rgb(75, 75, 75);
     display: grid;
     grid-template-columns: 1fr 3fr;
     grid-gap: 30px;
-    height: 550px;
-
 }
 
 form {
     text-align: center;
     width: 30%;
     margin: auto;
+    margin-top: 8%;
     padding: .9%;
     border-radius: 5px;
     box-shadow: 0 0 3px 3px rgb(214, 214, 214);
@@ -61,7 +54,7 @@ form {
 input {
     font-family: 'Simonetta', cursive;
     border: none;
-    padding: 2%;
+    padding: 3%;
     width: 60%;
     border-radius: 5px;
     margin-bottom: 3%;
@@ -73,33 +66,43 @@ input {
     color: rgb(173, 173, 173);
 }
 
-input:focus, input:hover {
+input[type='email']:focus, 
+input[type='password']:focus, 
+input[type='email']:hover, 
+input[type='password']:hover {
     outline: none;
     box-shadow: 0 0 3px 3px rgb(204, 204, 204);
 }
 
 input[type='submit'] {
     display: block;
-    background-color: black;
     color: white;
-    width: 20%;
+    width: 50%;
     margin: 8% auto;
     font-weight: bolder;
 }
+
+input#login {
+    background-color: rgb(8, 129, 24);
+}
+
+input#register {
+    background-color: rgb(16, 135, 247);
+}
+
 input[type='submit']:hover {
-    box-shadow: 0 0 1px 1px rgb(8, 255, 41);
-    background-color: rgb(8, 255, 41);
-    color: rgb(0, 0, 0);
+    border: 2px solid black;
 }
 
 .intro-image {
-    padding: 0 0 0 50px;
+    padding: 0 0 0 20%;
 }
 .intro-image>img {
     display: block;
     width: 100%;
     height: auto;
     margin: auto;
+    margin-top: 3%;
 }
 
 .intro-text {
@@ -117,7 +120,7 @@ input[type='submit']:hover {
     margin-top: 10%;
     border: none;
     padding: 10px;
-    box-shadow: 0 0 1px 1px rgb(34, 29, 29);
+    box-shadow: 0 0 1px 1px rgb(187, 187, 187);
 }
 
 a#register {
@@ -127,11 +130,11 @@ a#register {
 
 a#login {
     padding: 10px 20px;
-    background-color: rgb(137, 255, 1);
+    background-color: rgb(8, 129, 24);
 }
 
 .intro-text>.links>a:hover{
-    box-shadow: 0 0 2px 2px rgb(61, 60, 60);
+    box-shadow: 0 0 2px 2px rgb(0, 0, 0);
 }
 
 

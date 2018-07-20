@@ -8,7 +8,8 @@ The UI provides intuitive pages, with elements for user registration and login.
 On login, a user can navigate to an entries page, profile page, and a settings page.
 Preview available at [dmithamo/mydiary](https://dmithamo.github.io/mydiary/index.html).
 
-**PS** : Work in Progress. Some UI elements may be unfucntional.
+[This branch](https://github.com/dmithamo/mydiary/tree/gh-pages) of the repo only tracks UI changes.
+
 
 ## API Features
 
