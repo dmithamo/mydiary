@@ -94,14 +94,19 @@ class Diary:
 
     def edit_entry(self, entry, properties_to_edit):
         """
-            Finds entry where entry.entry_id == id
-            Updates values entry's properties as in **kwargs
+            Updates entry with key value pairs in properties_to_edit
         """
         # Locate entry, if entry exists
         for key, value in properties_to_edit.items():
             setattr(entry, key, value)
-        
         return entry
+
+    def delete_entry(self, entry):
+        """
+            Removes entry from 'db'
+        """
+        self.entries.remove(entry)
+
 
 
 class Entry:
