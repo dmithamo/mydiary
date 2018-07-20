@@ -167,6 +167,23 @@ def modify_an_entry(id):
 
     return response
 
+@api.route('{}/entries/<int:id>'.format(BASE_URL), methods=['DELETE'])
+def delete_an_entry(id):
+    """
+        Responds to a DELETE request to '/mydiary/api/v1/entries/id'
+        endpoint
+    """
+    entry = DIARY.get_entry(id)
+    # Handle entry not found in 'db'
+    if not entry:
+        response = jsonify(message="Not found error. Entry with id '{}' not found".format(id)), 404
+    # If entry with given id is found ...
+    else:
+        DIARY.delete_entry(entry)
+        response = jsonify(message="Delete successful"), 200
+
+    return response
+
 
 if __name__ == '__main__':
     api.run()
