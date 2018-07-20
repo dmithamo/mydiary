@@ -62,6 +62,7 @@ function loadContents(tag) {
 }
 
 function removeAllContent() {
+    // Clear page; prepare to load seetings or entries or profile
     for (const contentDiv of contentDivs) {
         contentDiv.style.display = 'none';
     }
@@ -69,31 +70,33 @@ function removeAllContent() {
     for (const contentList of contentLists) {
         contentList.style.display = 'none';
     }
-}
+};
 
 function loadEntries() {
+    // Load entries on clicking 'entries' a-tag
     entriesDiv.style.display = 'block';
     entriesList.style.display = 'block';
-}
+};
 
 function loadProfile() {
     // Display profileDiv and contents
     profileDiv.style.display = 'block';
     profileList.style.display = 'block';
     
-}
+};
 
 function loadSettings() {
+    // Load settings on clicking 'settings' a-tag
     settingsDiv.style.display = 'block';
     settingsList.style.display = 'block';
-}
+};
 
 function unselectAllAnchorTags() {
     // Unmark other Tags
     for (const anchorTag of anchorTags) {
         anchorTag.classList.remove('active-link');
     }
-}
+};
 
 // Select all buttons
 const buttons = document.querySelectorAll('button');
@@ -101,17 +104,20 @@ const buttons = document.querySelectorAll('button');
 addClickListenersToButtons();
 
 function addClickListenersToButtons() {
+    // Delete and Edit btns : action on click
     for (const btn of buttons) {
         btn.addEventListener('click', (event) => {
             const clickedBtn = event.target;
             const parentEntry = clickedBtn.parentElement;
-            
+
             if (clickedBtn.innerHTML === 'Delete') {
                 parentEntry.remove();
 
-            } else if(clickedBtn.innerHTML === 'Edit') {
+            } else if(clickedBtn.innerHTML === 'New') {
+                clickedBtn.setAttribute('style', 'background-color : black; color : blue')
                 // Thinking about this ...
             }
+        
         });
     }
 }
@@ -122,6 +128,7 @@ const showMoreLinks = document.querySelectorAll('.show-more');
 addClickListenersToEntries();
 
 function addClickListenersToEntries() {
+    // Toggle entry contents on clicking show more
     for (const showMore of showMoreLinks) {
         showMore.addEventListener('click', (event) => {
             const clickedShowMore = event.target;
@@ -132,6 +139,30 @@ function addClickListenersToEntries() {
             } else {
                 clickedShowMore.innerHTML = 'Show more';
             }
+        });
+    }
+}
+
+// Select all entry titles and entry bodies 
+const entryTitles = document.querySelectorAll('.entry-title');
+const entryBodies = document.querySelectorAll('.entry-body');
+// Combine into one array for common action
+const titlesAndBodies = [...entryTitles, ...entryBodies];
+
+// Add dblclick listeners
+onClickTitlesAndBodies();
+
+function onClickTitlesAndBodies() {
+    // On dblclick, provide prompt for editing
+    for (const entryParam of titlesAndBodies) {
+        // Add tool-tip
+        entryParam.setAttribute('title', 'Double click to edit');
+        entryParam.addEventListener('dblclick', (event) => {
+            const clickedParam = event.target;
+            const newText = prompt('Edit this to?', clickedParam.innerHTML)
+            if (newText) {
+                clickedParam.innerHTML = newText;
+            };
         });
     }
 }
