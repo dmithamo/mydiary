@@ -1,6 +1,6 @@
 # MyDiary
 
-This repo contains out the UI templates and API backend for an online journal where users can chronicle their thoughts, feelings and dark secrets.
+This repo is a build out of the UI templates and API backend for an online journal where users can chronicle their thoughts, feelings and dark secrets.
 
 ## UI Features
 
