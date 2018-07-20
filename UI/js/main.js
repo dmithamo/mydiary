@@ -53,9 +53,11 @@ function loadContents(tag) {
 
     if (tag.id === 'a-entries') {
         loadEntries();
-    } else if (tag.id === 'a-profile') {
+    } 
+    else if (tag.id === 'a-profile') {
         loadProfile();
-    } else if (tag.id === 'a-settings') {
+    } 
+    else if (tag.id === 'a-settings') {
         loadSettings();
     }
 }
@@ -111,11 +113,15 @@ function addClickListenersToButtons() {
             if (clickedBtn.innerHTML === 'Delete') {
                 parentEntry.remove();
 
-            } else if(clickedBtn.innerHTML === 'New') {
-                clickedBtn.setAttribute('style', 'background-color : black; color : blue')
-                // Thinking about this ...
+            } 
+            else if(clickedBtn.innerHTML === 'New') {
+                const title = prompt("Provide a title : ", "");
+                const body = prompt("Type out your entry : ", "");
+                const tags = prompt("Tags : ", "");
+                if (title && body) {
+                    alert(`New entry created : \n\n\t${title}\n\t\t${body}\n\t\t${tags}`)
+                }
             }
-        
         });
     }
 }
@@ -134,7 +140,8 @@ function addClickListenersToEntries() {
 
             if (clickedShowMore.innerHTML === 'Show more') {
                 clickedShowMore.innerHTML = 'Show less';
-            } else {
+            } 
+            else {
                 clickedShowMore.innerHTML = 'Show more';
             }
         });
