@@ -17,11 +17,11 @@ The API contains the endpoints below:
   
 | Endpoint               | What if Does             | Git Branch                          |
 | :--------------------  | :----------------------- | :--------------------------------   |
-| GET  /entries          | Fetch all entries        | ft-api-fetch-all-entries-159100964  |
-| GET  /entries/id       | Fetch single entry       | ft-api-fetch-single-entry-159101143 |
-| POST /entries          | Add an entry             | ft-api-add-entry-159101428          |
-| PUT /entries/id        | Modify an entry          | ft-api-modify-entry-159101719       |
-| DELETE /entries/id     | Delete an entry          | ft-api-delete-entry-159102048       |
+| GET  /entries          | Fetch all entries        | [ft-api-fetch-all-entries-159100964](https://github.com/dmithamo/mydiary/tree/ft-api-fetch-all-entries-159100964)  |
+| GET  /entries/id       | Fetch single entry       | [ft-api-fetch-single-entry-159101143](https://github.com/dmithamo/mydiary/tree/ft-api-fetch-single-entry-159101143) |
+| POST /entries          | Add an entry             | [ft-api-add-entry-159101428](https://github.com/dmithamo/mydiary/tree/ft-api-add-entry-159101428)          |
+| PUT /entries/id        | Modify an entry          | [ft-api-modify-entry-159101719](https://github.com/dmithamo/mydiary/tree/ft-api-modify-entry-159101719)       |
+| DELETE /entries/id     | Delete an entry          | [ft-api-delete-entry-159102048]()       |
 
 ## Manual testing of the API
 
