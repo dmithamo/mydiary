@@ -3,15 +3,6 @@
     min-height: 100%;
     max-width: 100%;
     margin: 0;
-    overflow-x: hidden;
-}
-
-.contents{
-    overflow: hidden;
-}
-
-section {
-    padding-bottom: 50px;
 }
 
 section>.section-container {
@@ -20,8 +11,8 @@ section>.section-container {
 }
 
 nav {
-    padding: 50px; 
-    height: 500px;
+    padding: 20%; 
+    height: 100%;
     background-color: black;
 }
 a {
@@ -75,11 +66,10 @@ ul#entries-list {
 ul>li {
     float: left;
     width: 20%;
-    margin: auto;
     box-shadow: 0 0 3px 3px rgb(207, 207, 207);
     padding: 10px;
     text-align: center;
-    margin: 20px 30px;
+    margin: 30px;
 }
 
 

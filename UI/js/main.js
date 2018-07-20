@@ -2,6 +2,15 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     addClickListeners();
+
+    // Load proper nav-bar height
+    assignProperNavHeight();
+
+    // Add click listerners to entries and entry buttons
+    // Event delegation, to account for newly added entries
+    addClickListenersToEntries();
+    addClickListenersToButtons();
+
 });
 
 // Select anchor tags and put them in array
@@ -100,33 +109,26 @@ function unselectAllAnchorTags() {
     }
 };
 
-// Select all buttons
-const buttons = document.querySelectorAll('button');
-// add click listeners to btns
-addClickListenersToButtons();
-
 function addClickListenersToButtons() {
-    // Delete and Edit btns : action on click
-    for (const btn of buttons) {
-        btn.addEventListener('click', (event) => {
+    // Delete and Edit btns : action on click.
+    // Use event delegation, because of newly added entries
+    document.addEventListener('click', (event) => {
+        if (event.target && (event.target.innerHTML === 'Delete' || event.target.innerHTML === 'New')) {
             const clickedBtn = event.target;
             const parentEntry = clickedBtn.parentElement;
-
             if (clickedBtn.innerHTML === 'Delete') {
                 parentEntry.remove();
-
-            } 
+            }
             else if(clickedBtn.innerHTML === 'New') {
                 const title = prompt("Provide a title : ", "");
                 const body = prompt("Type out your entry : ", "");
                 const tags = prompt("Tags : ", "");
                 if (title && body) {
-                    alert(`New entry created : \n\n\t${title}\n\t\t${body}\n\t\t${tags}`)
                     addNewEntry(title, body, tags);
                 }
             }
-        });
-    }
+        }
+    });
 }
 
 function addNewEntry(title, body, tags) {
@@ -137,31 +139,25 @@ function addNewEntry(title, body, tags) {
     newEnty.getElementsByTagName('p')[1].innerText = `${body}`;
     newEnty.getElementsByTagName('p')[2].getElementsByTagName('span')[2].innerText = `${tags}`;
 
-    document.getElementById('entries-list').appendChild(newEnty);
+    document.getElementById('entries-list').prepend(newEnty);
     // Re-assign nav-bar height
     assignProperNavHeight();
 }
 
-// Select all entries' 'Show More' links
-const showMoreLinks = document.querySelectorAll('.show-more');
-// Add click listeners
-addClickListenersToEntries();
-
 function addClickListenersToEntries() {
-    // Toggle entry contents on clicking show more
-    for (const showMore of showMoreLinks) {
-        showMore.addEventListener('click', (event) => {
+    // Toggle entry contents on clicking show more. Use event delegation
+    document.addEventListener('click', (event) => {
+        if (event.target && event.target.innerHTML === 'Show more') {
             const clickedShowMore = event.target;
             clickedShowMore.nextElementSibling.classList.toggle('visible');
-
-            if (clickedShowMore.innerHTML === 'Show more') {
-                clickedShowMore.innerHTML = 'Show less';
-            } 
-            else {
-                clickedShowMore.innerHTML = 'Show more';
-            }
-        });
-    }
+            clickedShowMore.innerHTML = 'Show less';
+        }
+        else if (event.target && event.target.innerHTML === 'Show less') {
+            const clickedShowMore = event.target;
+            clickedShowMore.nextElementSibling.classList.toggle('visible');
+            clickedShowMore.innerHTML = 'Show more';
+        }
+    });
 }
 
 // Select all entry titles and entry bodies 
@@ -191,8 +187,8 @@ function onClickTitlesAndBodies() {
 
 function assignProperNavHeight() {
     // Check height of container, assign to nav bar
-    let height = document.getElementById('parent-container').offsetHeight;
-    height = `${height}px`;
+    const heightParentContainer = document.getElementById('parent-container').offsetHeight;
+    const heightHeader = document.getElementById('header').offsetHeight;
+    const height = `${heightParentContainer - heightHeader}px`;
     document.getElementById('nav-bar').style.height = height;
-    document.getElementById('entries-list').style.height = height;
 };
