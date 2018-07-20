@@ -53,6 +53,8 @@ function loadContents(tag) {
 
     if (tag.id === 'a-entries') {
         loadEntries();
+        // Assign navbar height
+        assignProperNavHeight();
     } 
     else if (tag.id === 'a-profile') {
         loadProfile();
@@ -77,6 +79,8 @@ function loadEntries() {
     // Load entries on clicking 'entries' a-tag
     entriesDiv.style.display = 'block';
     entriesList.style.display = 'block';
+    // Assign nav-bar height
+    assignProperNavHeight();
 };
 
 function loadProfile() {
@@ -120,10 +124,26 @@ function addClickListenersToButtons() {
                 const tags = prompt("Tags : ", "");
                 if (title && body) {
                     alert(`New entry created : \n\n\t${title}\n\t\t${body}\n\t\t${tags}`)
+                    addNewEntry(title, body, tags);
                 }
             }
         });
     }
+}
+
+function addNewEntry(title, body, tags) {
+    // Append newly created entry to list of entries
+    const lastEntry = document.getElementById('entries-list').lastElementChild;
+    const newEnty = lastEntry.cloneNode(true);
+    newEnty.getElementsByTagName('h4')[0].innerText = `#${title}`;
+    newEnty.getElementsByTagName('p')[1].innerText = `${body}`;
+    newEnty.getElementsByTagName('p')[2].getElementsByTagName('span')[2].innerText = `${tags}`;
+
+    document.getElementById('entries-list').appendChild(newEnty);
+    // Re-assign nav-bar height
+    assignProperNavHeight();
+
+
 }
 
 // Select all entries' 'Show More' links
@@ -172,3 +192,11 @@ function onClickTitlesAndBodies() {
         });
     }
 }
+
+
+function assignProperNavHeight() {
+    // Check height of container, assign to nav bar
+    let height = document.getElementById('parent-container').offsetHeight;
+    height = `${height}px`;
+    document.getElementById('nav-bar').style.height = height;
+};

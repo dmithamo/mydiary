@@ -10,7 +10,7 @@
     <title>MyDiary - User Profile</title>
 </head>
 <body>
-    <div class="container">
+    <div id="parent-container" class="container">
         <header>
             <div class="logo">
                 <a href="../index.html">MyDiary</a>
@@ -18,7 +18,7 @@
         </header>
         <section>
             <div class="section-container">
-                <nav>
+                <nav id="nav-bar">
                     <a class="nav-links" id="a-entries" href="#entries">Your Entries</a>
                     <a class="nav-links" id="a-profile" href="#profile">Your Profile</a>
                     <a class="nav-links" id="a-settings" href="#settings">Settings</a>
@@ -28,7 +28,43 @@
                     <!-- Contains list of entries -->
                     <div id="entries">
                         <button id="add-new">New</button>
-                        <ol id="entries-list">
+                        <ul id="entries-list">
+                            <li class="entry">
+                                <h4 class="entry-title">#Her words.</h4>
+                                <p class="show-more">Show more</p>
+                                <p class="entry-body visible">I don't remember her exact words, but the pain they inflicted will stay with me forever.</p>
+                                <p class="metadata">
+                                    <span class="date">12th July 2018</span>
+                                    <span class="number">004</span>
+                                    <span class="tags">her, hurt, heart</span>
+                                </p>
+                                <br>
+                                <button>Delete</button>
+                            </li>
+                            <li class="entry">
+                                <h4 class="entry-title">#Her words.</h4>
+                                <p class="show-more">Show more</p>
+                                <p class="entry-body visible">I don't remember her exact words, but the pain they inflicted will stay with me forever.</p>
+                                <p class="metadata">
+                                    <span class="date">12th July 2018</span>
+                                    <span class="number">004</span>
+                                    <span class="tags">her, hurt, heart</span>
+                                </p>
+                                <br>
+                                <button>Delete</button>
+                            </li>
+                            <li class="entry">
+                                <h4 class="entry-title">#Her words.</h4>
+                                <p class="show-more">Show more</p>
+                                <p class="entry-body visible">I don't remember her exact words, but the pain they inflicted will stay with me forever.</p>
+                                <p class="metadata">
+                                    <span class="date">12th July 2018</span>
+                                    <span class="number">004</span>
+                                    <span class="tags">her, hurt, heart</span>
+                                </p>
+                                <br>
+                                <button>Delete</button>
+                            </li>
                             <li class="entry">
                                 <h4 class="entry-title">#Her words.</h4>
                                 <p class="show-more">Show more</p>
@@ -80,7 +116,33 @@
                                 <br>
                                 <button>Delete</button>
                             </li>
-                        </ol>
+                            <li class="entry">
+                                <h4 class="entry-title">#Picture this.</h4>
+                                <p class="show-more">Show more</p>
+                                
+                                <p class="entry-body visible">He is facing the business end of a gun </p>
+                                <p class="metadata">
+                                    <span class="date">9th July 2018</span>
+                                    <span class="number">#001</span>
+                                    <span class="tags">gunman, gun, man</span>
+                                </p>
+                                <br>
+                                <button>Delete</button>
+                            </li>
+                            <li class="entry">
+                                <h4 class="entry-title">#Picture this.</h4>
+                                <p class="show-more">Show more</p>
+                                
+                                <p class="entry-body visible">He is facing the business end of a gun </p>
+                                <p class="metadata">
+                                    <span class="date">9th July 2018</span>
+                                    <span class="number">#001</span>
+                                    <span class="tags">gunman, gun, man</span>
+                                </p>
+                                <br>
+                                <button>Delete</button>
+                            </li>
+                        </ul>
                     </div>
                     <!-- Contains all Entries made by User -->
                     <div id="profile">
@@ -125,10 +187,10 @@
                 </div>
             </div>
         </section>
-        <footer>
-            &copy2018 - a <a href="../index.html">MyDiary</a> Product
-        </footer>
     </div>
+    <footer>
+        &copy2018 - a <a href="../index.html">MyDiary</a> Product
+    </footer>
     <script src="js/main.js"></script>
 </body>
 </html>
