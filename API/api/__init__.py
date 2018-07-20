@@ -42,7 +42,6 @@ def fetch_all_entries():
     # Handle empty all_entries list
     if not all_entries:
         response = jsonify(message="No entries exist"), 400
-        
     else:
         result = all_entries
         # Serve response as json, along with status code
@@ -99,12 +98,12 @@ def add_an_entry():
             response = jsonify(message='Bad request. Similar entry exists'), 400
         else:
             response = jsonify({
-                    'title': title,
-                    'body': body,
-                    'entry_created_on' : entry.entry_created_on,
-                    'tags': tags
-                    }
-            )
+                'title': title,
+                'body': body,
+                'entry_created_on' : entry.entry_created_on,
+                'tags': tags
+                }
+                )
             response.status_code = 201
 
     else:
@@ -120,7 +119,7 @@ def modify_an_entry(id):
         endpoint
     """
 
-    entry = DIARY.get_entry(id)         
+    entry = DIARY.get_entry(id)
     # Handle entry not found in 'db'
     if not entry:
         response = jsonify(message="Not found error. Entry with id '{}' not found".format(id)), 404
@@ -134,7 +133,6 @@ def modify_an_entry(id):
             tags = tags.split(' ')
         else:
             tags = []
-        
         # If request contains ANY of these params
         if title or body or tags:
             # Collect entry_properties to change in dict
@@ -152,14 +150,13 @@ def modify_an_entry(id):
                 DIARY.edit_entry(entry, properties_to_edit)
 
                 response = jsonify({
-                        'title': title,
-                        'body': body,
-                        'entry_created_on' : entry.entry_created_on,
-                        'tags': tags
-                        }
-                )
+                    'title': title,
+                    'body': body,
+                    'entry_created_on' : entry.entry_created_on,
+                    'tags': tags
+                    }
+                    )
                 response.status_code = 201
-        
             # Handle no changes detected
             else:
                 response = jsonify(message="Bad request. No changes detected"), 400

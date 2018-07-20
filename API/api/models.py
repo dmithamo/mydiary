@@ -100,6 +100,7 @@ class Diary:
         # Locate entry, if entry exists
         for key, value in properties_to_edit.items():
             setattr(entry, key, value)
+        
         return entry
 
 
