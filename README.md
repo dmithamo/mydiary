@@ -1,6 +1,6 @@
 # MyDiary
 
-This repo tracks the building out of the UI templates and API backend for an online journal where users can chronicle their thoughts, feelings and dark secrets.
+This repo is a build out of the UI templates and API backend for an online journal where users can chronicle their thoughts, feelings and dark secrets.
 
 ## UI Features
 
@@ -10,6 +10,31 @@ Preview available at [dmithamo/mydiary](https://dmithamo.github.io/mydiary/index
 
 [This branch](https://github.com/dmithamo/mydiary/tree/gh-pages) of the repo only tracks UI changes.
 
-## API
 
-See [this branch](https://github.com/dmithamo/mydiary/tree/develop) of the repo.
+## API Features
+
+The API contains the endpoints below:
+  
+| Endpoint               | What if Does             | Git Branch                          |
+| :--------------------  | :----------------------- | :--------------------------------   |
+| GET  /entries          | Fetch all entries        | ft-api-fetch-all-entries-159100964  |
+| GET  /entries/id       | Fetch single entry       | ft-api-fetch-single-entry-159101143 |
+| POST /entries          | Add an entry             | ft-api-add-entry-159101428          |
+| PUT /entries/id        | Modify an entry          | ft-api-modify-entry-159101719       |
+| DELETE /entries/id     | Delete an entry          | ft-api-delete-entry-159102048       |
+
+## Manual testing of the API
+
+To manually test the endpoints, configure and run the server as below:
+
+1. `git checkout <relevant-branch>` or `git checkout <develop-branch>` for all the endpoints
+
+2. `cd API/`
+
+3. Run `pip install -r requirements.txt` to install dependencies
+
+4. Run `export FLASK_APP=api/__init__.py`
+
+5. Run `flask run` to start the server
+
+The API is now available at `localhost:5000/mydiary/api/v1/`.
