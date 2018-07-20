@@ -194,4 +194,5 @@ function assignProperNavHeight() {
     let height = document.getElementById('parent-container').offsetHeight;
     height = `${height}px`;
     document.getElementById('nav-bar').style.height = height;
+    document.getElementById('entries-list').style.height = height;
 };
