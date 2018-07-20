@@ -156,7 +156,8 @@ function onClickTitlesAndBodies() {
     // On dblclick, provide prompt for editing
     for (const entryParam of titlesAndBodies) {
         // Add tool-tip
-        entryParam.setAttribute('title', 'Double click to edit');
+        entryParam.setAttribute('title', 'Double click the title or body to edit it');
+        // Add dblclick listener, provide propmt on dblclick
         entryParam.addEventListener('dblclick', (event) => {
             const clickedParam = event.target;
             const newText = prompt('Edit this to?', clickedParam.innerHTML)
