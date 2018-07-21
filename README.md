@@ -4,7 +4,7 @@ This repo is a build out of the UI templates and API backend for an online journ
 
 [![Build Status](https://travis-ci.com/dmithamo/mydiary.svg?branch=api-travis-ci-159102302)](https://travis-ci.com/dmithamo/mydiary)
 
-[![Coverage Status](https://coveralls.io/repos/github/dmithamo/mydiary/badge.svg?branch=api-travis-ci-159102302)](https://coveralls.io/github/dmithamo/mydiary?branch=api-travis-ci-159102302)
+[![Coverage Status](https://coveralls.io/repos/github/dmithamo/mydiary/badge.svg?branch=develop)](https://coveralls.io/github/dmithamo/mydiary?branch=develop)
 
 ## UI Features
 
