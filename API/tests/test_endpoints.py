@@ -110,7 +110,7 @@ def test_get_entries_4(api_test_client):
     assert 'tag' in str(response.data)
     assert 'one' in str(response.data)
     assert 'too' in str(response.data)
-    
+
 def test_put_entries_1(api_test_client):
     """
         8. Test 'PUT /entries/id' - when the entry exists
@@ -120,3 +120,21 @@ def test_put_entries_1(api_test_client):
     assert response.status_code == 201
     assert 'Byte me' in str(response.data)
     assert 'Dennis and I yam' in str(response.data)
+
+def test_put_entries_2(api_test_client):
+    """
+        9. Test 'PUT /entries/id' - when no changes have been made to data
+        Made after the succesful POST request in test 3. above
+    """
+    response = api_test_client.put('{}/entries/1?title={}'.format(BASE_URL, SAMPLE_ENTRY_PARAMS_1['title']))
+    # assert response.status_code == 400
+    assert 'Bad request' in str(response.data)
+    
+def test_put_entries_3(api_test_client):
+    """
+        10. Test 'PUT /entries/id' - when the entry does not entry exists
+    """
+    response = api_test_client.put('{}/entries/100?title=Edit me'.format(BASE_URL))
+    assert response.status_code == 404
+    assert 'Not found error' in str(response.data)
+
