@@ -2,9 +2,11 @@
 
 This repo is a build out of the UI templates and API backend for an online journal.
 
+Continous intergration and Code Coverage reporting.
+
 [![Build Status](https://travis-ci.com/dmithamo/mydiary.svg?branch=api-travis-ci-159102302)](https://travis-ci.com/dmithamo/mydiary)
 
-[![Coverage Status](https://coveralls.io/repos/github/dmithamo/mydiary/badge.svg?branch=develop)](https://coveralls.io/github/dmithamo/mydiary?branch=develop)
+[![Coverage Status](https://coveralls.io/repos/github/dmithamo/mydiary/badge.svg?branch=api-travis-ci-159102302)](https://coveralls.io/github/dmithamo/mydiary?branch=api-travis-ci-159102302)
 
 ## UI Features
 
@@ -34,7 +36,7 @@ The API contains the endpoints below:
 
 To manually test the endpoints, configure and run the server as below:
 
-1. `git checkout <relevant-branch>` or `git checkout <develop-branch>` for all the endpoints
+1. `git checkout <branch-endpoint>` for the endpoint of inetrest or `git checkout develop` for all the endpoints
 
 2. `cd API/`
 
@@ -42,7 +44,7 @@ To manually test the endpoints, configure and run the server as below:
 
 4. Run `pip install -r requirements.txt` to install dependencies
 
-5. Run `export FLASK_APP=api/__init__.py`
+5. Run `export FLASK_APP=api/api.py`
 
 6. Run `flask run` to start the server
 
@@ -59,4 +61,3 @@ To run the tests written for the API's endpoints:
 2. Run `pytest` (or `pytest -v` for verbose output)
 
 [Pytest documentation](http://pytest-flask.readthedocs.io/en/latest/).
-
