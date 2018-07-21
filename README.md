@@ -6,6 +6,10 @@ This repo is a build out of the UI templates and API backend for an online journ
 
 [![Coverage Status](https://coveralls.io/repos/github/dmithamo/mydiary/badge.svg?branch=master)](https://coveralls.io/github/dmithamo/mydiary?branch=master)
 
+[![Maintainability](https://api.codeclimate.com/v1/badges/0210657825c6e64b9b80/maintainability)](https://codeclimate.com/github/dmithamo/mydiary/maintainability)
+
+[![Test Coverage](https://api.codeclimate.com/v1/badges/0210657825c6e64b9b80/test_coverage)](https://codeclimate.com/github/dmithamo/mydiary/test_coverage)
+
 ## UI Features
 
 The UI provides elements for :

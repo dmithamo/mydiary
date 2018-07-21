@@ -1,6 +1,8 @@
 env:
-  global:
-    - CC_TEST_REPORTER_ID=b4a16e91fba06b8068870160b2dd02cbbd793dd238f151a72b2837cefd33409d
+    global:
+    - GIT_COMMITTED_AT=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then git log -1 --pretty=format:%ct; else git log -1 --skip 1 --pretty=format:%ct; fi)
+    - CODECLIMATE_REPO_TOKEN=[token]
+    - CC_TEST_REPORTER_ID=[b4a16e91fba06b8068870160b2dd02cbbd793dd238f151a72b2837cefd33409d]
 
 language: python
 python:
@@ -18,6 +20,12 @@ install:
 # Run tests
 script:
     - pytest
+
+addons:
+    postgresql: "9.5"
+
+services:
+    - redis-server
     
 after_script:
   - coverage xml
