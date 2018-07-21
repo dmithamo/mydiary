@@ -4,7 +4,7 @@
 """
 
 from flask import Flask, request, jsonify, json, abort
-from api.models import Diary, Entry
+from models import Diary, Entry
 import config
 
 # Constant BASE_URL is prefixed to each route
