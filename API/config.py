@@ -22,6 +22,7 @@ class DefaultConfig:
     SECRET_KEY = os.getenv('SECRET_KEY')
     DEBUG = False
     CSRF_ENABLED = True
+    TEST = False
 
 
 class DevelopmentConfig(DefaultConfig):
@@ -32,9 +33,9 @@ class DevelopmentConfig(DefaultConfig):
     DEBUG = True
 
 
-class ProductionConfig(DefaultConfig):
+class TestingConfig(DefaultConfig):
     """
         Overide some of the default configuration params with
-        production-specific params
+        testing-specific params
     """
-    DEBUG = False
+    TEST = True
