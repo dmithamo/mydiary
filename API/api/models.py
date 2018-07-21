@@ -92,12 +92,11 @@ class Diary:
 
         return entry
 
-    def edit_entry(self, entry, properties_to_edit):
+    def edit_entry(self, entry, params_to_edit):
         """
-            Updates entry with key value pairs in properties_to_edit
+            Updates entry with key value pairs in params_to_edit
         """
-        # Locate entry, if entry exists
-        for key, value in properties_to_edit.items():
+        for key, value in params_to_edit.items():
             setattr(entry, key, value)
         return entry
 
