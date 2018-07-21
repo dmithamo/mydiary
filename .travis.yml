@@ -10,7 +10,7 @@ python:
 
 # Install dependencies
 install:
-    - pip install -r requirements.txt
+    - pip install -r API/requirements.txt
 
 # Install dependencies
 before_script:
