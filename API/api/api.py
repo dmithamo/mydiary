@@ -6,7 +6,7 @@
 from flask import Flask, request, jsonify, json, abort
 # from models import Diary
 # from models import Diary
-import models
+from models import Diary
 import config
 
 # Constant BASE_URL is prefixed to each route
@@ -16,7 +16,7 @@ api = Flask(__name__)
 api.config.from_object(config.DevelopmentConfig)
 
 # Create an instance of the Diary class - represents db
-DIARY = models.Diary()
+DIARY = Diary()
 
 
 @api.route('{}/entries'.format(BASE_URL), methods=['GET'])
