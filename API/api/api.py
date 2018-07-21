@@ -6,7 +6,7 @@
 from flask import Flask, request, jsonify, json, abort
 # from models import Diary
 # from models import Diary
-from models import Diary
+from models.models import Diary
 import config
 
 # Constant BASE_URL is prefixed to each route
