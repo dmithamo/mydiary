@@ -6,7 +6,7 @@
 import pytest
 import json
 
-from api import api
+from api.api import api
 import config
 
 # Part of api url common to all endpoints
