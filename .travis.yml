@@ -9,3 +9,8 @@ install:
 # Run tests
 script:
     - pytest
+
+# Specify build branch
+branches:
+      only:
+        - api-travis-ci-159102302
