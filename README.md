@@ -2,6 +2,10 @@
 
 This repo is a build out of the UI templates and API backend for an online journal.
 
+[![Build Status](https://travis-ci.com/dmithamo/mydiary.svg?branch=api-travis-ci-159102302)](https://travis-ci.com/dmithamo/mydiary)
+
+[![Coverage Status](https://coveralls.io/repos/github/dmithamo/mydiary/badge.svg?branch=master)](https://coveralls.io/github/dmithamo/mydiary?branch=master)
+
 ## UI Features
 
 The UI provides elements for :
@@ -55,3 +59,4 @@ To run the tests written for the API's endpoints:
 2. Run `pytest` (or `pytest -v` for verbose output)
 
 [Pytest documentation](http://pytest-flask.readthedocs.io/en/latest/).
+

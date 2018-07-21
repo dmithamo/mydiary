@@ -6,7 +6,7 @@
 import pytest
 import json
 
-from api import api
+from api.api import api
 import config
 
 # Part of api url common to all endpoints
@@ -120,19 +120,10 @@ def test_put_entries_1(api_test_client):
     assert response.status_code == 201
     assert 'Byte me' in str(response.data)
     assert 'Dennis and I yam' in str(response.data)
-
+    
 def test_put_entries_2(api_test_client):
     """
-        9. Test 'PUT /entries/id' - when no changes have been made to data
-        Made after the succesful POST request in test 3. above
-    """
-    response = api_test_client.put('{}/entries/1?title={}'.format(BASE_URL, SAMPLE_ENTRY_PARAMS_1['title']))
-    # assert response.status_code == 400
-    assert 'Bad request' in str(response.data)
-    
-def test_put_entries_3(api_test_client):
-    """
-        10. Test 'PUT /entries/id' - when the entry does not entry exists
+        9. Test 'PUT /entries/id' - when the entry does not entry exists
     """
     response = api_test_client.put('{}/entries/100?title=Edit me'.format(BASE_URL))
     assert response.status_code == 404
@@ -140,7 +131,7 @@ def test_put_entries_3(api_test_client):
     
 def test_delete_entries_1(api_test_client):
     """
-        11. Test 'DELETE /entries/id' - when the entry exists
+        10. Test 'DELETE /entries/id' - when the entry exists
     """
     response = api_test_client.delete('{}/entries/1'.format(BASE_URL))
     assert response.status_code == 200
@@ -148,7 +139,7 @@ def test_delete_entries_1(api_test_client):
     
 def test_delete_entries_2(api_test_client):
     """
-        12. Test 'DELETE /entries/id' - when the entry does not exist
+        11. Test 'DELETE /entries/id' - when the entry does not exist
     """
     response = api_test_client.delete('{}/entries/100'.format(BASE_URL))
     assert response.status_code == 404
