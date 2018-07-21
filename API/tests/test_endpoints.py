@@ -90,3 +90,23 @@ def test_post_entries_3(api_test_client):
         ))
     assert response.status_code == 400
     assert 'Similar entry exists' in str(response.data)
+
+def test_get_entries_3(api_test_client):
+    """
+        6. Test 'GET /entries' - when at least an entry exists
+        Made after the succesful POST request in test 3. above
+    """
+    response = api_test_client.get('{}/entries'.format(BASE_URL))
+    assert response.status_code == 200
+    assert 'Dennis and I yam' in str(response.data)
+
+def test_get_entries_4(api_test_client):
+    """
+        7. Test 'GET /entries/id' - when the entry exists
+        Made after the succesful POST request in test 3. above
+    """
+    response = api_test_client.get('{}/entries/1'.format(BASE_URL))
+    assert response.status_code == 200
+    assert 'tag' in str(response.data)
+    assert 'one' in str(response.data)
+    assert 'too' in str(response.data)
