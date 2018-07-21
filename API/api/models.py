@@ -69,7 +69,7 @@ class Diary:
 
         return result
 
-    def add_entry(self, title, body, tags):
+    def add_entry(self, entry_params):
         """
             Checks whether similar entry already exists
             If no similar, creates entry
@@ -77,8 +77,8 @@ class Diary:
         existing_titles = [entry.entry_title for entry in self.get_entries()]
         existing_bodies = [entry.entry_body for entry in self.get_entries()]
 
-        if not title in existing_titles and not body in existing_bodies:
-            entry = Entry(title, body, tags)
+        if not entry_params['title'] in existing_titles and not entry_params['body'] in existing_bodies:
+            entry = Entry(entry_params['title'], entry_params['body'], entry_params['tags'])
             # Append entry object to self.entries
             self.entries.append(entry)
 
