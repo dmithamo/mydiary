@@ -18,7 +18,6 @@ DIARY = Diary()
 
 
 @api.route('{}/entries'.format(BASE_URL), methods=['GET'])
-@api.route('{}/entries/'.format(BASE_URL), methods=['GET'])
 def fetch_all_entries():
     """
         Responds to a GET request to '/mydiary/api/v1/entries'
@@ -41,7 +40,7 @@ def fetch_all_entries():
 
     # Handle empty all_entries list
     if not all_entries:
-        response = jsonify(message="No entries exist"), 400
+        response = jsonify(message="No entries exist"), 404
     else:
         result = all_entries
         # Serve response as json, along with status code
@@ -89,9 +88,15 @@ def add_an_entry():
         tags = tags.split(' ')
     else:
         tags = []
+    
 
     if title and body:
-        entry = DIARY.add_entry(title, body, tags)
+        new_entry_params = {
+            'title' : title,
+            'body' : body,
+            'tags' : tags
+        }
+        entry = DIARY.add_entry(new_entry_params)
 
         # Handle entry not created
         if not entry:
