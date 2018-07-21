@@ -137,4 +137,19 @@ def test_put_entries_3(api_test_client):
     response = api_test_client.put('{}/entries/100?title=Edit me'.format(BASE_URL))
     assert response.status_code == 404
     assert 'Not found error' in str(response.data)
-
+    
+def test_delete_entries_1(api_test_client):
+    """
+        11. Test 'DELETE /entries/id' - when the entry exists
+    """
+    response = api_test_client.delete('{}/entries/1'.format(BASE_URL))
+    assert response.status_code == 200
+    assert 'Delete successful' in str(response.data)
+    
+def test_delete_entries_2(api_test_client):
+    """
+        12. Test 'DELETE /entries/id' - when the entry does not exist
+    """
+    response = api_test_client.delete('{}/entries/100'.format(BASE_URL))
+    assert response.status_code == 404
+    assert 'Not found error' in str(response.data)
