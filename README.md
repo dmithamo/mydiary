@@ -55,3 +55,7 @@ To run the tests written for the API's endpoints:
 2. Run `pytest` (or `pytest -v` for verbose output)
 
 [Pytest documentation](http://pytest-flask.readthedocs.io/en/latest/).
+
+### Travis CI Badge
+
+[![Build Status](https://travis-ci.com/dmithamo/mydiary.svg?branch=api-travis-ci-159102302)](https://travis-ci.com/dmithamo/mydiary)

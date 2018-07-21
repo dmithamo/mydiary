@@ -1,3 +1,9 @@
+# Set up test coverage reporting
+env:
+  global:
+    - GIT_COMMITTED_AT=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then git log -1 --pretty=format:%ct; else git log -1 --skip 1 --pretty=format:%ct; fi)
+    - CC_TEST_REPORTER_ID=[b4a16e91fba06b8068870160b2dd02cbbd793dd238f151a72b2837cefd33409d]
+
 language: python
 python:
     - "3.6"
@@ -6,9 +12,18 @@ python:
 install:
     - pip install -r requirements.txt
 
+# Install dependencies
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
+
 # Run tests
 script:
     - pytest
+
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
 
 # Specify build branch
 branches:
