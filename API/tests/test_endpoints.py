@@ -110,3 +110,13 @@ def test_get_entries_4(api_test_client):
     assert 'tag' in str(response.data)
     assert 'one' in str(response.data)
     assert 'too' in str(response.data)
+    
+def test_put_entries_1(api_test_client):
+    """
+        8. Test 'PUT /entries/id' - when the entry exists
+        Made after the succesful POST request in test 3. above
+    """
+    response = api_test_client.put('{}/entries/1?title=Byte me'.format(BASE_URL))
+    assert response.status_code == 201
+    assert 'Byte me' in str(response.data)
+    assert 'Dennis and I yam' in str(response.data)
