@@ -6,11 +6,9 @@ Continous intergration and Code Coverage reporting.
 
 [![Build Status](https://travis-ci.com/dmithamo/mydiary.svg?branch=api-travis-ci-159102302)](https://travis-ci.com/dmithamo/mydiary)
 
-[![Coverage Status](https://coveralls.io/repos/github/dmithamo/mydiary/badge.svg?branch=api-travis-ci-159102302)](https://coveralls.io/github/dmithamo/mydiary?branch=api-travis-ci-159102302)
+[![Coverage Status](https://coveralls.io/repos/github/dmithamo/mydiary/badge.svg)](https://coveralls.io/github/dmithamo/mydiary)
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/0210657825c6e64b9b80/maintainability)](https://codeclimate.com/github/dmithamo/mydiary/maintainability)
-
-[![Test Coverage](https://api.codeclimate.com/v1/badges/0210657825c6e64b9b80/test_coverage)](https://codeclimate.com/github/dmithamo/mydiary/test_coverage)
 
 ## UI Features
 
