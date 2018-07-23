@@ -10,8 +10,6 @@ Continous intergration and Code Coverage reporting.
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/0210657825c6e64b9b80/maintainability)](https://codeclimate.com/github/dmithamo/mydiary/maintainability)
 
-[![Test Coverage](https://api.codeclimate.com/v1/badges/0210657825c6e64b9b80/test_coverage)](https://codeclimate.com/github/dmithamo/mydiary/test_coverage)
-
 ## UI Features
 
 The UI provides elements for :
